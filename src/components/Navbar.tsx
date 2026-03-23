@@ -32,10 +32,19 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const userDropdownRef = useRef<HTMLDivElement>(null);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile for responsive header heights
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Smooth Header Animation on Scroll
   const { scrollY } = useScroll();
-  const headerHeight = useTransform(scrollY, [0, 80], [140, 90]);
+  const headerHeight = useTransform(scrollY, [0, 80], isMobile ? [85, 65] : [140, 90]);
   const headerBg = useTransform(
     scrollY,
     [0, 80],

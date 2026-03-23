@@ -1,18 +1,22 @@
 import { MetadataRoute } from "next";
+import { getProducts, getCategoryTree, getBlogPosts } from "@/lib/actions";
 
 // This generates a dynamic XML sitemap for search engines.
 // Validates technical SEO requirements for scaling e-commerce.
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://familyfans-store.com";
 
-  // Core Pages
-  const corePages = [
+  // 1. Core Static Pages
+  const staticPages = [
     "",
     "/shop",
-    "/search",
-    "/shop?category=fans",
-    "/shop?category=heaters",
+    "/blog",
+    "/certificates",
+    "/contact",
+    "/about",
+    "/faq",
+    "/catalog",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -20,54 +24,47 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1.0,
   }));
 
-  // Discovery & Marketing Pages
-  const discoveryPages = [
-    "/new-arrivals",
-    "/best-sellers",
-    "/top-rated",
-    "/deals",
-    "/flash-sale",
-    "/clearance",
-    "/bundles",
-    "/coupons",
-    "/trending",
-    "/summer-sale",
-    "/black-friday",
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
+  // 2. Fetch Dynamic Data
+  const [products, categoryTree, blogPosts] = await Promise.all([
+    getProducts(),
+    getCategoryTree(true),
+    getBlogPosts(),
+  ]);
+
+  // 3. Dynamic Products
+  const productPages = products.map((product) => ({
+    url: `${baseUrl}/product/${product.slug || product.id}`,
     lastModified: new Date(),
-    changeFrequency: "daily" as const,
+    changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
-  // Content & Trust Pages
-  const contentPages = [
-    "/about",
-    "/contact",
-    "/faq",
-    "/shipping",
-    "/returns",
-    "/blog",
-    "/help",
-    "/gift-cards",
-    "/newsletter",
-    "/affiliate",
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
+  // 4. Dynamic Categories (Flattened Tree)
+  const flattenCategories = (categories: any[]): any[] => {
+    let flat: any[] = [];
+    categories.forEach((cat) => {
+      flat.push(cat);
+      if (cat.subCategories && cat.subCategories.length > 0) {
+        flat = [...flat, ...flattenCategories(cat.subCategories)];
+      }
+    });
+    return flat;
+  };
+
+  const categoryPages = flattenCategories(categoryTree).map((category) => ({
+    url: `${baseUrl}/shop?category=${category.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
-  // Legal & Utility Pages
-  const legalPages = ["/privacy", "/terms", "/cookies", "/sitemap-page"].map(
-    (route) => ({
-      url: `${baseUrl}${route}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.3,
-    }),
-  );
+  // 5. Dynamic Blog Posts
+  const blogPages = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug || post.id}`,
+    lastModified: post.publishedAt ? new Date(post.publishedAt) : new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
 
-  return [...corePages, ...discoveryPages, ...contentPages, ...legalPages];
+  return [...staticPages, ...productPages, ...categoryPages, ...blogPages];
 }
