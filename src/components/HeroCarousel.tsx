@@ -14,7 +14,7 @@ const slides = [
     align: "left",
     content: (
       <div className="w-full lg:w-[65%] xl:w-[55%] space-y-10 pl-0 lg:pl-10 text-left flex flex-col items-start">
-        <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-bold text-[#333] leading-[1.15] tracking-tight">
+        <h1 className="text-2xl sm:text-4xl lg:text-[62px] font-bold text-[#333] leading-[1.15] tracking-tight">
           Stay Cool All <span className="text-[lab(61.1055%_-41.0235_73.1483)]">Summer!</span> <br />
           BLDC Air Cooler for <br />
           Ultimate Indoor Comfort.
@@ -66,7 +66,7 @@ const slides = [
     align: "left",
     content: (
       <div className="w-full lg:w-[55%] space-y-10 pl-0 lg:pl-10 text-left flex flex-col items-start">
-        <h1 className="text-4xl sm:text-5xl lg:text-[48px] xl:text-[56px] font-normal text-[#333] leading-[1.2] tracking-tight">
+        <h1 className="text-2xl sm:text-4xl lg:text-[48px] xl:text-[56px] font-normal text-[#333] leading-[1.2] tracking-tight">
           Smart <span className="text-[lab(61.1055%_-41.0235_73.1483)] font-bold">Heating</span> Solutions <br />
           offering consistent warmth <br />
           & low energy <span className="font-bold text-[lab(61.1055%_-41.0235_73.1483)]">consumption.</span>
@@ -127,13 +127,13 @@ const slides = [
 
         {/* Text */}
         <div className="space-y-4">
-          <p className="text-[30px] sm:text-4xl lg:text-5xl italic font-serif text-[#333] leading-tight tracking-wide">
+          <p className="text-xl sm:text-3xl lg:text-5xl italic font-serif text-[#333] leading-tight tracking-wide">
             Next Gen BLDC Fans
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-black text-[lab(61.1055%_-41.0235_73.1483)] leading-[1.1] tracking-tighter">
+          <h1 className="text-3xl sm:text-5xl lg:text-[60px] font-black text-[lab(61.1055%_-41.0235_73.1483)] leading-[1.1] tracking-tighter">
             For Home & Office
           </h1>
-          <p className="text-lg text-slate-600 font-medium max-w-xl">
+          <p className="text-base sm:text-lg text-slate-600 font-medium max-w-xl">
             Superior air flow, minimal noise, low power consumption <br className="hidden lg:block" />
             and high power factor fan kits.
           </p>
@@ -141,7 +141,7 @@ const slides = [
 
         <Link
           href="/shop"
-          className="inline-block bg-[lab(61.1055%_-41.0235_73.1483)] text-white font-bold text-[15px] sm:text-lg px-10 py-4 sm:px-12 sm:py-5 rounded-full hover:opacity-90 hover:scale-105 transition-all shadow-lg tracking-wide uppercase mt-4"
+          className="inline-block bg-[lab(61.1055%_-41.0235_73.1483)] text-white font-bold text-sm sm:text-lg px-8 py-3.5 sm:px-12 sm:py-5 rounded-full hover:opacity-90 hover:scale-105 transition-all shadow-lg tracking-wide uppercase mt-4"
         >
           SHOP NOW
         </Link>
@@ -185,7 +185,7 @@ export default function HeroCarousel() {
           </div>
 
           {/* Foreground Content */}
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-12 sm:py-20">
             <motion.div
               initial={{ opacity: 0, x: slides[index].align === 'right' ? 30 : -30 }}
               animate={{ opacity: 1, x: 0 }}
