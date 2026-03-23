@@ -1,0 +1,114 @@
+[
+  {
+    "id": "1",
+    "name": "AeroBreeze Pro Desk Fan",
+    "description": "Silent, oscillating desk fan with 3 speed settings and a sleek modern design.",
+    "price": 39.99,
+    "category": "Fans",
+    "rating": 4.8,
+    "reviewCount": 124,
+    "imageUrl": "https://images.unsplash.com/photo-1598466649774-cde4a7e9373d?auto=format&fit=crop&q=80&w=800",
+    "specs": {
+      "Speeds": "3 Levels",
+      "Noise": "35db (Max)",
+      "Oscillation": "90 Degrees",
+      "Power": "45W"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Arctic Tower Fan",
+    "description": "High-powered tower fan with remote control, timer, and ultra-quiet motor.",
+    "price": 89.99,
+    "category": "Fans",
+    "rating": 4.9,
+    "reviewCount": 86,
+    "imageUrl": "https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?auto=format&fit=crop&q=80&w=800",
+    "specs": {
+      "Height": "42 Inches",
+      "Timer": "Up to 12 Hours",
+      "Control": "Remote & Touch",
+      "Modes": "Normal, Natural, Sleep"
+    }
+  },
+  {
+    "id": "3",
+    "name": "CozyWarm Ceramic Heater",
+    "description": "Compact ceramic space heater with thermostat and tip-over protection.",
+    "price": 45.00,
+    "category": "Heaters",
+    "rating": 4.7,
+    "reviewCount": 52,
+    "imageUrl": "https://images.unsplash.com/photo-1579607827871-ce4a6ebec3fc?auto=format&fit=crop&q=80&w=800",
+    "specs": {
+      "Technology": "Ceramic PTC",
+      "Safety": "Tip-over & Overheat",
+      "Area": "Up to 200 sq.ft",
+      "Power": "1500W"
+    }
+  },
+  {
+    "id": "4",
+    "name": "Inferno Radiator",
+    "description": "Oil-filled radiator heater for large rooms, featuring energy-saving eco mode.",
+    "price": 125.00,
+    "category": "Heaters",
+    "rating": 4.6,
+    "reviewCount": 38,
+    "imageUrl": "https://images.unsplash.com/photo-1605330364654-2c7004f2dbdb?auto=format&fit=crop&q=80&w=800",
+    "specs": {
+      "Type": "7-Fin Oil Filled",
+      "EcoMode": "Auto-regulating",
+      "Area": "Up to 500 sq.ft",
+      "Timer": "24h Programmable"
+    }
+  },
+  {
+    "id": "5",
+    "name": "Breeze Master Ceiling Fan",
+    "description": "Premium ceiling fan with LED light kit and wall control.",
+    "price": 199.99,
+    "category": "Fans",
+    "rating": 4.8,
+    "reviewCount": 94,
+    "imageUrl": "https://images.unsplash.com/photo-1510006797745-f0b7bc19e599?auto=format&fit=crop&q=80&w=800",
+    "specs": {
+      "Span": "52 Inches",
+      "Light": "LED 18W Integrated",
+      "Motor": "DC Quiet Tech",
+      "Speed": "6 Speed Remote"
+    }
+  },
+  {
+    "id": "6",
+    "name": "PureAir Humidifier",
+    "description": "Ultrasonic cool mist humidifier to keep your air comfortable during winter.",
+    "price": 60.00,
+    "category": "More",
+    "rating": 4.5,
+    "reviewCount": 112,
+    "imageUrl": "https://images.unsplash.com/photo-1582218084042-30cb94adfcad?auto=format&fit=crop&q=80&w=800",
+    "specs": {
+      "Capacity": "4 Liters",
+      "Runtime": "Up to 30 Hours",
+      "Mist": "Adjustable Output",
+      "AutoOff": "Water-less Shutoff"
+    }
+  },
+  {
+    "id": "7",
+    "name": "SolarBreeze Window Fan",
+    "description": "Dual-blade window fan with intake and exhaust modes.",
+    "price": 55.00,
+    "category": "Fans",
+    "rating": 4.4,
+    "reviewCount": 42,
+    "imageUrl": "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&q=80&w=800",
+    "specs": {
+       "Type": "Dual Twin Fan",
+       "Reversible": "Manual Intake/Exhaust",
+       "Fit": "Most Sash Windows",
+       "Speed": "3 Settings"
+    }
+  }
+]
