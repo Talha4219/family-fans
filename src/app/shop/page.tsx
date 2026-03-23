@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import { getProducts, getCategories } from "@/lib/actions";
 import Link from "next/link";
-import { Home, ArrowRight } from "lucide-react";
+import { Home, ArrowRight, Loader2 } from "lucide-react";
 import PageAnimate from "@/components/PageAnimate";
 import ShopClientSection from "@/components/ShopClientSection";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Shop All Products — FamilyFans",
@@ -53,7 +54,14 @@ export default async function ShopPage() {
 
         {/* Content Section */}
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <ShopClientSection products={products} categories={categories} />
+          <Suspense fallback={
+            <div className="flex flex-col items-center justify-center py-20 bg-white rounded-[3rem] border border-slate-50">
+              <Loader2 className="w-10 h-10 text-lime-600 animate-spin mb-4" />
+              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Loading shop experience...</p>
+            </div>
+          }>
+            <ShopClientSection products={products} categories={categories} />
+          </Suspense>
         </div>
       </div>
     </PageAnimate>

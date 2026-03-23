@@ -9,7 +9,7 @@ import CategoryModel from '@/models/Category';
 import UserModel from '@/models/User';
 
 import {
-Product, Category
+Product, Category, BlogPost, Deal
 }
 from './types';
 
@@ -897,7 +897,7 @@ return [];
 
 }
 
-export async function getDeals(activeOnly: boolean = false) {
+export async function getDeals(activeOnly: boolean = false): Promise<Deal[]> {
 await dbConnect();
 
 try {
@@ -918,7 +918,10 @@ $gte: new Date()
     const deals = await DealModel.find(query).sort({
       startDate: activeOnly ? 1 : -1
     });
-    return JSON.parse(JSON.stringify(deals));
+    return JSON.parse(JSON.stringify(deals.map((deal: any) => ({
+      ...deal.toObject(),
+      id: deal._id.toString()
+    }))));
 }
 
 catch (error) {
@@ -1146,7 +1149,7 @@ export async function updateSale(id: string, formData: FormData) {
     }
 }
 
-export async function getBlogPosts() {
+export async function getBlogPosts(): Promise<BlogPost[]> {
 await dbConnect();
 
 try {
@@ -1154,7 +1157,7 @@ try {
     const posts = await BlogPostModel.find({}).sort({
       createdAt: -1
     });
-    return JSON.parse(JSON.stringify(posts.map(post => ({
+    return JSON.parse(JSON.stringify(posts.map((post: any) => ({
       ...post.toObject(),
       id: post._id.toString()
     }))));

@@ -11,10 +11,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { getDeals, deleteDeal } from "@/lib/actions";
+import { Deal, BlogPost } from "@/lib/types";
 export default async function DealsPage() {
   const deals = await getDeals();
   const activeDeals = deals.filter(
-    (d) => d.isActive && new Date(d.endDate) > new Date(),
+    (d: BlogPost | Deal) => (d as Deal).isActive && new Date((d as Deal).endDate) > new Date(),
   ).length;
   async function handleDelete(id: string) {
     "use server";
@@ -44,13 +45,13 @@ export default async function DealsPage() {
           { label: "Total Nodes", count: deals.length, icon: Box },
           {
             label: "Scheduled",
-            count: deals.filter((d) => new Date(d.startDate) > new Date())
+            count: deals.filter((d: Deal) => new Date(d.startDate) > new Date())
               .length,
             icon: Calendar,
           },
           {
             label: "Expired",
-            count: deals.filter((d) => new Date(d.endDate) < new Date()).length,
+            count: deals.filter((d: Deal) => new Date(d.endDate) < new Date()).length,
             icon: Clock,
           },
         ].map((item) => (
@@ -101,7 +102,7 @@ export default async function DealsPage() {
               <tbody>
                 {deals.map((deal) => (
                   <tr
-                    key={deal._id}
+                    key={deal.id}
                     className="border-b border-slate-50/50 hover:bg-slate-50/50 transition-colors"
                   ><td className="px-8 py-6">
                       <p className="text-sm font-black text-[zinc-950] uppercase tracking-tight">
@@ -146,7 +147,7 @@ export default async function DealsPage() {
                           <Edit className="w-4 h-4" />
                         </button>
                         <form
-                          action={handleDelete.bind(null, deal._id.toString())}
+                          action={handleDelete.bind(null, deal.id)}
                         >
                           <button className="p-2 hover:bg-white rounded-lg transition-colors text-slate-400 hover:text-red-500 shadow-sm border border-transparent hover:border-slate-100">
                             <Trash2 className="w-4 h-4" />

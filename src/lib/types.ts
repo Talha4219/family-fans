@@ -71,6 +71,7 @@ export type Deal = {
   discountValue: number;
   startDate: string;
   endDate: string;
+  productIds: string[];
   maxQuantity?: number;
   soldQuantity: number;
   isActive: boolean;

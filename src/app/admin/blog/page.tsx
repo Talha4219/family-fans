@@ -143,7 +143,7 @@ export default async function MediaCommandPage() {
               {" "}
               {posts.map((post) => (
                 <tr
-                  key={post._id}
+                  key={post.id}
                   className="group hover:bg-slate-50/50 transition-colors"
                 ><td className="px-8 py-6">
                     <div className="flex items-center gap-4">
@@ -202,13 +202,13 @@ export default async function MediaCommandPage() {
                         <Eye className="w-4 h-4" />
                       </Link>
                       <Link
-                        href={`/admin/blog/${post._id}/edit`}
+                        href={`/admin/blog/${post.id}/edit`}
                         className="p-2.5 rounded-xl bg-slate-50 text-slate-400 hover:bg-[zinc-950] hover:text-white transition-all"
                       >
                         <Edit3 className="w-4 h-4" />
                       </Link>
                       <form
-                        action={handleDelete.bind(null, post._id.toString())}
+                        action={handleDelete.bind(null, post.id)}
                       >
                         <button className="p-2.5 rounded-xl bg-slate-50 text-slate-400 hover:bg-red-500 hover:text-white transition-all">
                           <Trash2 className="w-4 h-4" />
