@@ -79,7 +79,7 @@ export default async function OrderConfirmationPage({
                 FamilyFans
               </h2>
               <p className="text-xs font-medium text-slate-400">
-                www.familyfans-store.com
+                www.familyfans.net
               </p>
             </div>
           </div>

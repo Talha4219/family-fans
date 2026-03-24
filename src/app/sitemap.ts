@@ -5,7 +5,7 @@ import { getProducts, getCategoryTree, getBlogPosts } from "@/lib/actions";
 // Validates technical SEO requirements for scaling e-commerce.
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://familyfans-store.com";
+  const baseUrl = "https://familyfans.net";
 
   // 1. Core Static Pages
   const staticPages = [

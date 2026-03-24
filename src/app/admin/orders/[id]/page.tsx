@@ -71,7 +71,7 @@ export default async function OrderDetailsPage({
           </div>
           <div className="text-right">
             <h2 className="text-2xl font-black uppercase">FamilyFans</h2>
-            <p className="text-sm font-medium">www.familyfans-store.com</p>
+            <p className="text-sm font-medium">www.familyfans.net</p>
           </div>
         </div>
       </div>

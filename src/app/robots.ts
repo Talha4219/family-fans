@@ -15,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         "/api/",
       ],
     },
-    sitemap: "https://familyfans-store.com/sitemap.xml",
+    sitemap: "https://familyfans.net/sitemap.xml",
   };
 }
