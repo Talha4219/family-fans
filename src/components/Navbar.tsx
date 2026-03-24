@@ -44,7 +44,7 @@ export default function Navbar() {
 
   // Smooth Header Animation on Scroll
   const { scrollY } = useScroll();
-  const headerHeight = useTransform(scrollY, [0, 80], isMobile ? [85, 65] : [140, 90]);
+  const headerHeight = useTransform(scrollY, [0, 80], isMobile ? [70, 60] : [95, 75]);
   const headerBg = useTransform(
     scrollY,
     [0, 80],
@@ -182,7 +182,7 @@ export default function Navbar() {
           backgroundColor: headerBg,
           borderBottomColor: headerBorder,
           boxShadow: headerShadow,
-          top: 40, // Height of TopBar
+          top: 44, // Height of TopBar (h-11)
         }}
         className="fixed w-full z-[100] backdrop-blur-xl border-b flex items-center transition-all duration-500"
       >
@@ -195,7 +195,7 @@ export default function Navbar() {
                 alt="FamilyFans Logo"
                 width={200}
                 height={90}
-                className="h-10 sm:h-12 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300"
+                className="h-9 sm:h-11 md:h-14 lg:h-16 w-auto object-contain transition-all duration-300"
                 priority
               />
             </Link>

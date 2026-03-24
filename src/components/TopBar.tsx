@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function TopBar() {
   return (
-    <div className="bg-zinc-950 text-white py-2 px-6 sm:px-8 border-b border-zinc-800/50 fixed top-0 w-full z-[110] h-10 flex items-center">
+    <div className="bg-zinc-950 text-white px-6 sm:px-8 border-b border-zinc-800/50 fixed top-0 w-full z-[110] h-11 flex items-center">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left: Announcement */}
         <div className="flex items-center gap-2">

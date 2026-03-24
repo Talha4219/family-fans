@@ -161,7 +161,7 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#fcfcfc] overflow-hidden min-h-[500px] lg:min-h-[650px] flex items-center pt-[125px] sm:pt-[180px]">
+    <section className="relative w-full bg-[#fcfcfc] overflow-hidden min-h-[500px] lg:min-h-[650px] flex items-center pt-[120px] sm:pt-[170px]">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
